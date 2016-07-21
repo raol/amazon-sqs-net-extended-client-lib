@@ -1,6 +1,5 @@
 ﻿namespace Amazon.SQS.ExtendedClient
 {
-    using System.Runtime.InteropServices;
     using Runtime;
     using S3;
 

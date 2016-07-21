@@ -1,14 +1,9 @@
 ﻿namespace Amazon.SQS.ExtendedClient.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
     using Model;
     using Moq;
-    using Newtonsoft.Json;
     using NUnit.Framework;
-    using S3;
     using S3.Model;
 
     [TestFixture]
