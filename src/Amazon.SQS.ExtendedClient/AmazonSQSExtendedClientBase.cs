@@ -1,4 +1,4 @@
-﻿namespace Amazon.SQS.Net.ExtendedClient
+﻿namespace Amazon.SQS.ExtendedClient
 {
     using System.Collections.Generic;
     using System.Threading;

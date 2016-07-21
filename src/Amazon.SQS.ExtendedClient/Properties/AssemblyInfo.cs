@@ -6,8 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Amazon.SQS.Net.ExtendedClient")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Extension to Amazon SQS that adds support for sending and receiving messages greater than 256K")]
 [assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Oleg Rakitskiy")]
 [assembly: AssemblyProduct("Amazon.SQS.Net.ExtendedClient")]
 [assembly: AssemblyCopyright("Copyright © Oleg Rakitskiy 2016")]
 [assembly: AssemblyTrademark("")]

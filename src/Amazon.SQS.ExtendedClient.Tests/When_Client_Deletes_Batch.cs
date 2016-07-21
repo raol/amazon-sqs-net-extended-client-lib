@@ -1,4 +1,4 @@
-﻿namespace Amazon.SQS.Net.ExtendedClient.Tests
+﻿namespace Amazon.SQS.ExtendedClient.Tests
 {
     using System;
     using System.Linq;

@@ -80,9 +80,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Amazon.SQS.Net.ExtendedClient\Amazon.SQS.Net.ExtendedClient.csproj">
+    <ProjectReference Include="..\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.csproj">
       <Project>{87932d35-43e8-4321-be2a-fd17c99330fa}</Project>
-      <Name>Amazon.SQS.Net.ExtendedClient</Name>
+      <Name>Amazon.SQS.ExtendedClient</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
