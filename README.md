@@ -13,6 +13,11 @@ With this library you can:
 
 * Delete stored payload from the S3 bucket.
 
+## Installation
+```PowerShell
+Install-Package Amazon.SQS.ExtendedClient
+```
+
 ## Usage
 
 ```csharp
