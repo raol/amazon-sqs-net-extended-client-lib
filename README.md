@@ -18,7 +18,9 @@ With this library you can:
 ```csharp
 var s3Client = new AmazonS3Client(new BasicAWSCredentials("<key>", "<secret>"), "<region>")
 var sqsClient = new AmazonSQSClient("<key>", "<secret>", "<region>");
-var extendedClient = new AmazonSQSExtendedClient(sqsClint, new ExtendedClientConfiguration().WithLargePayloadSupportEnabled(s3Client, "<s3bucketname>"));
+var extendedClient = new AmazonSQSExtendedClient(
+    sqsClient, 
+    new ExtendedClientConfiguration().WithLargePayloadSupportEnabled(s3Client, "<s3bucketname>"));
 extendedClient.SendMessage(queueUrl, "MessageBody")
 ```
 
