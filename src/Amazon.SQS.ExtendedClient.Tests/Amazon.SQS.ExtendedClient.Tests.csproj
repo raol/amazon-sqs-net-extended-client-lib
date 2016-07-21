@@ -7,8 +7,8 @@
     <ProjectGuid>{A5B38649-722E-48D5-AB2A-002A0AAD2F00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amazon.SQS.Net.ExtendedClient.Tests</RootNamespace>
-    <AssemblyName>Amazon.SQS.Net.ExtendedClient.Tests</AssemblyName>
+    <RootNamespace>Amazon.SQS.ExtendedClient.Tests</RootNamespace>
+    <AssemblyName>Amazon.SQS.ExtendedClient.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

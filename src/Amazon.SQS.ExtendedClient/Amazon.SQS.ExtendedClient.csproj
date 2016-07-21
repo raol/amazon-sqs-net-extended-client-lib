@@ -7,8 +7,8 @@
     <ProjectGuid>{87932D35-43E8-4321-BE2A-FD17C99330FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Amazon.SQS.Net.ExtendedClient</RootNamespace>
-    <AssemblyName>Amazon.SQS.Net.ExtendedClient</AssemblyName>
+    <RootNamespace>Amazon.SQS.ExtendedClient</RootNamespace>
+    <AssemblyName>Amazon.SQS.ExtendedClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

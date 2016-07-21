@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Amazon.SQS.Net.ExtendedClient")]
+[assembly: AssemblyTitle("Amazon.SQS.ExtendedClient")]
 [assembly: AssemblyDescription("Extension to Amazon SQS that adds support for sending and receiving messages greater than 256K")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Oleg Rakitskiy")]
-[assembly: AssemblyProduct("Amazon.SQS.Net.ExtendedClient")]
+[assembly: AssemblyProduct("Amazon.SQS.ExtendedClient")]
 [assembly: AssemblyCopyright("Copyright © Oleg Rakitskiy 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,4 +34,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.1.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("Amazon.SQS.Net.ExtendedClient.Tests")]
+[assembly: InternalsVisibleTo("Amazon.SQS.ExtendedClient.Tests")]
