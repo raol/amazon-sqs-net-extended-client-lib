@@ -1,5 +1,2 @@
 before_build:
-  - nuget restore
-
-build:
-    project: \src\Amazon.SQS.ExtendedClient.sln
+  - nuget restore src/
