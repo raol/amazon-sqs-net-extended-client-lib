@@ -1,6 +1,7 @@
 ﻿namespace Amazon.SQS.ExtendedClient.Tests
 {
     using System.Threading;
+    using System.Threading.Tasks;
     using Model;
     using Moq;
     using NUnit.Framework;
@@ -20,7 +21,7 @@
         }
 
         [Test]
-        public async void Long_Message_Async_It_Is_Stored_In_S3()
+        public async Task Long_Message_Async_It_Is_Stored_In_S3()
         {
             var body = GenerateLongString(SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD + 1);
             var messageRequest = new SendMessageRequest(SQS_QUEUE_NAME, body);
@@ -41,7 +42,7 @@
         }
 
         [Test]
-        public async void Long_Message_Async_It_Is_Not_Stored_In_S3_If_IsLargePayloadSupportEnabled_Is_False()
+        public async Task Long_Message_Async_It_Is_Not_Stored_In_S3_If_IsLargePayloadSupportEnabled_Is_False()
         {
             var extendedClient = new AmazonSQSExtendedClient(sqsMock.Object, new ExtendedClientConfiguration().WithLargePayloadSupportDisabled());
             var body = GenerateLongString(SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD + 1);
@@ -60,7 +61,7 @@
         }
 
         [Test]
-        public async void Short_Message_Async_It_Is_Not_Stored_In_S3()
+        public async Task Short_Message_Async_It_Is_Not_Stored_In_S3()
         {
             var body = GenerateLongString(SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD);
             var messageRequest = new SendMessageRequest(SQS_QUEUE_NAME, body);
@@ -82,7 +83,7 @@
         }
 
         [Test]
-        public async void Short_Message_Async_It_Is_Stored_In_S3_If_AlwaysThroughS3_Configured()
+        public async Task Short_Message_Async_It_Is_Stored_In_S3_If_AlwaysThroughS3_Configured()
         {
             var extendedClient = new AmazonSQSExtendedClient(
                 sqsMock.Object,
@@ -109,7 +110,7 @@
         }
 
         [Test]
-        public async void Short_Message_Async_It_Is_Stored_In_S3_If_Exceeds_Threshold()
+        public async Task Short_Message_Async_It_Is_Stored_In_S3_If_Exceeds_Threshold()
         {
             var extendedClient = new AmazonSQSExtendedClient(
                 sqsMock.Object,

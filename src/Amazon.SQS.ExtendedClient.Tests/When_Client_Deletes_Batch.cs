@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading;
+    using System.Threading.Tasks;
     using Model;
     using Moq;
     using NUnit.Framework;
@@ -23,7 +24,7 @@
         }
 
         [Test]
-        public async void Long_Messages_Async_They_Are_Deleted_From_S3_And_SQS()
+        public async Task Long_Messages_Async_They_Are_Deleted_From_S3_And_SQS()
         {
             var handleTail = "_handle_";
             var s3Key = Guid.NewGuid().ToString("N");
@@ -45,7 +46,7 @@
         }
 
         [Test]
-        public async void Short_Messages_Async_They_Are_Deleted_From_SQS_Only()
+        public async Task Short_Messages_Async_They_Are_Deleted_From_SQS_Only()
         {
             var handleTail = "_handle_";
             var entries = Enumerable.Repeat(0, 3).Select(_ => new DeleteMessageBatchRequestEntry(Guid.NewGuid().ToString("N"), handleTail)).ToList();

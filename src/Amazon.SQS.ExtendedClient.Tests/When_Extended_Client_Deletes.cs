@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading;
+    using System.Threading.Tasks;
     using Model;
     using Moq;
     using NUnit.Framework;
@@ -21,7 +22,7 @@
         }
 
         [Test]
-        public async void Long_Message_Async_It_Is_Deleted_From_s3()
+        public async Task Long_Message_Async_It_Is_Deleted_From_s3()
         {
             var handleTail = "_handle_";
             var s3Key = Guid.NewGuid().ToString("N");
@@ -40,7 +41,7 @@
         }
 
         [Test]
-        public async void Short_Message_Async_It_Is_Deleted_Only_From_Queue()
+        public async Task Short_Message_Async_It_Is_Deleted_Only_From_Queue()
         {
             await client.DeleteMessageAsync(new DeleteMessageRequest(SQS_QUEUE_NAME, "handle"));
             s3Mock.Verify(m => m.DeleteObjectAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<CancellationToken>()), Times.Never());

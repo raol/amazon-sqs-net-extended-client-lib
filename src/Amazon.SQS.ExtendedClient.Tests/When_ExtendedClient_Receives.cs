@@ -25,7 +25,7 @@
         }
 
         [Test]
-        public async void Short_Message_Async_It_Is_Not_Read_From_S3()
+        public async Task Short_Message_Async_It_Is_Not_Read_From_S3()
         {
             sqsMock.Setup(m => m.ReceiveMessageAsync(It.IsAny<ReceiveMessageRequest>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(new ReceiveMessageResponse { Messages = Enumerable.Repeat(new Message(), 1).ToList() }));
             await client.ReceiveMessageAsync(new ReceiveMessageRequest(SQS_QUEUE_NAME));
@@ -54,7 +54,7 @@
         }
 
         [Test]
-        public async void Long_Message_Async_It_is_Read_From_S3()
+        public async Task Long_Message_Async_It_is_Read_From_S3()
         {
             var originalReceiptHadle = "_testrh_";
             var originalBody = "original";
