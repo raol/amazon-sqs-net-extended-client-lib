@@ -16,6 +16,10 @@ With this library you can:
 * Delete stored payload from the S3 bucket.
 
 ## Installation
+
+[![Nuget](https://img.shields.io/nuget/v/Amazon.SQS.ExtendedClient.svg?style=flat)](https://www.nuget.org/packages/Amazon.SQS.ExtendedClient/)
+
+To install via nuget, run following command in the Package Manager Console
 ```PowerShell
 Install-Package Amazon.SQS.ExtendedClient
 ```
