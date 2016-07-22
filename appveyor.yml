@@ -1,8 +1,10 @@
+version: 0.1.1.{build}
+
 configuration: Release
 
 before_build:
     - nuget restore src/
 
 after_build:
-    - nuget pack src\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.nuspec -Version 0.1.1.%appveyor_build_version%
+    - nuget pack src\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.nuspec -Version %appveyor_build_version%
     - appveyor PushArtifact '*.nupkg'
