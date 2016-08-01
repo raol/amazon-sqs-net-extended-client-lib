@@ -1,7 +1,7 @@
 Amazon SQS Extended Client Library for .NET
 ===========================================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ljru25gu01h0rd8l?svg=true)](https://ci.appveyor.com/project/raol/amazon-sqs-net-extended-client-lib)
+[![Build status](https://ci.appveyor.com/api/projects/status/ljru25gu01h0rd8l/branch/master?svg=true)](https://ci.appveyor.com/project/raol/amazon-sqs-net-extended-client-lib)
 
 This is port to .NET of existing [Amazon Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib)
 It enables you to store message payloads in S3 and hence overcomes message size limitation of the SQS.
