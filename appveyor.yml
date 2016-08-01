@@ -8,3 +8,7 @@ before_build:
 after_build:
     - nuget pack src\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.nuspec -Version %appveyor_build_version%
     - appveyor PushArtifact Amazon.SQS.ExtendedClient.%appveyor_build_version%.nupkg
+
+branches:
+    only:
+        - master
