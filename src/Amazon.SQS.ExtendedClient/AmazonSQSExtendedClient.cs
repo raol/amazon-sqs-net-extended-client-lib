@@ -431,7 +431,7 @@
         {
             CheckMessageAttributes(batchEntry.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3NamePovider.GenerateName();
+            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
             var messageContentStr = batchEntry.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongLength;
 
@@ -451,7 +451,7 @@
         {
             CheckMessageAttributes(batchEntry.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3NamePovider.GenerateName();
+            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
             var messageContentStr = batchEntry.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongLength;
 
@@ -471,7 +471,7 @@
         {
             CheckMessageAttributes(sendMessageRequest.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3NamePovider.GenerateName();
+            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
             var messageContentStr = sendMessageRequest.MessageBody;
             var messageContentSize  = Encoding.UTF8.GetBytes(messageContentStr).LongLength;
 
@@ -491,7 +491,7 @@
         {
             CheckMessageAttributes(sendMessageRequest.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3NamePovider.GenerateName();
+            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
             var messageContentStr = sendMessageRequest.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongLength;
 

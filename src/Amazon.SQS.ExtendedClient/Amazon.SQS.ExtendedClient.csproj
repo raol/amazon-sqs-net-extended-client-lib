@@ -58,10 +58,10 @@
     <Compile Include="AmazonSQSExtendedClient.cs" />
     <Compile Include="AmazonSQSExtendedClientBase.cs" />
     <Compile Include="ExtendedClientConfiguration.cs" />
-    <Compile Include="GuidS3NameProvider.cs" />
+    <Compile Include="GuidS3KeyProvider.cs" />
     <Compile Include="MessageS3Pointer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IS3NamePovider.cs" />
+    <Compile Include="IS3KeyPovider.cs" />
     <Compile Include="SQSExtendedClientConstants.cs" />
   </ItemGroup>
   <ItemGroup>

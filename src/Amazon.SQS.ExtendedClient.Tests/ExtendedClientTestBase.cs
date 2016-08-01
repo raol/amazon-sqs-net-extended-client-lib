@@ -37,7 +37,23 @@
         protected bool MessagePointerIsCorrect(string messagePoinderBody)
         {
             var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePoinderBody);
+
             return pointer.S3BucketName == S3_BUCKET_NAME && Guid.Parse(pointer.S3Key) != Guid.Empty;
+        }
+
+        protected bool MessagePointerIsCorrect(string messagePoinderBody, string customPrefix)
+        {
+            if (string.IsNullOrEmpty(customPrefix))
+            {
+                Assert.Fail("customPrefix is not specifed.");
+            }
+
+            var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePoinderBody);
+
+            return pointer.S3BucketName == S3_BUCKET_NAME &&
+                   pointer.S3Key.StartsWith(customPrefix) &&
+                   Guid.Parse(pointer.S3Key.Replace(customPrefix, string.Empty)) != Guid.Empty;
+
         }
 
         protected bool LargePayloadAttributeIsAdded(Dictionary<string, MessageAttributeValue> attributes)

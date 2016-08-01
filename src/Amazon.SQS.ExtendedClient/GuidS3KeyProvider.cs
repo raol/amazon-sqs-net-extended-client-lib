@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class GuidS3NameProvider : IS3NamePovider
+    public class GuidS3KeyProvider : IS3KeyPovider
     {
         public string GenerateName()
         {
