@@ -35,6 +35,8 @@
 
         public IS3KeyPovider S3KeyPovider { get; private set; }
 
+        public bool RetainS3Messages { get; set; }
+
         public ExtendedClientConfiguration WithLargePayloadSupportEnabled(IAmazonS3 s3, string s3BucketName)
         {
             if (s3 == null)
@@ -87,6 +89,12 @@
             }
 
             this.S3KeyPovider = provider;
+            return this;
+        }
+
+        public ExtendedClientConfiguration WithRetainS3Messages(bool value)
+        {
+            this.RetainS3Messages = value;
             return this;
         }
     }
