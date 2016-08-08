@@ -231,7 +231,11 @@
 
             if (IsS3ReceiptHandle(deleteMessageRequest.ReceiptHandle))
             {
-                DeleteMessagePayloadFromS3(deleteMessageRequest.ReceiptHandle);
+                if (!clientConfiguration.RetainS3Messages)
+                {
+                    DeleteMessagePayloadFromS3(deleteMessageRequest.ReceiptHandle);
+                }
+                
                 deleteMessageRequest.ReceiptHandle = GetOriginalReceiptHandle(deleteMessageRequest.ReceiptHandle);
             }
 
@@ -257,7 +261,11 @@
 
             if (IsS3ReceiptHandle(deleteMessageRequest.ReceiptHandle))
             {
-                await DeleteMessagePayloadFromS3Async(deleteMessageRequest.ReceiptHandle, cancellationToken).ConfigureAwait(false);
+                if (!clientConfiguration.RetainS3Messages)
+                {
+                    await DeleteMessagePayloadFromS3Async(deleteMessageRequest.ReceiptHandle, cancellationToken).ConfigureAwait(false);
+                }
+                
                 deleteMessageRequest.ReceiptHandle = GetOriginalReceiptHandle(deleteMessageRequest.ReceiptHandle);
             }
 
@@ -283,7 +291,11 @@
 
             foreach (var entry in deleteMessageBatchRequest.Entries.Where(entry => IsS3ReceiptHandle(entry.ReceiptHandle)))
             {
-                DeleteMessagePayloadFromS3(entry.ReceiptHandle);
+                if (!clientConfiguration.RetainS3Messages)
+                {
+                    DeleteMessagePayloadFromS3(entry.ReceiptHandle);
+                }
+                
                 entry.ReceiptHandle = GetOriginalReceiptHandle(entry.ReceiptHandle);
             }
 
@@ -309,7 +321,11 @@
 
             foreach (var entry in deleteMessageBatchRequest.Entries.Where(entry => IsS3ReceiptHandle(entry.ReceiptHandle)))
             {
-                await DeleteMessagePayloadFromS3Async(entry.ReceiptHandle, cancellationToken).ConfigureAwait(false);
+                if (!clientConfiguration.RetainS3Messages)
+                {
+                    await DeleteMessagePayloadFromS3Async(entry.ReceiptHandle, cancellationToken).ConfigureAwait(false);
+                }
+                
                 entry.ReceiptHandle = GetOriginalReceiptHandle(entry.ReceiptHandle);
             }
 
