@@ -1,4 +1,7 @@
-﻿namespace Amazon.SQS.ExtendedClient
+﻿using System;
+using Amazon.Runtime;
+
+namespace Amazon.SQS.ExtendedClient
 {
     using System.Collections.Generic;
     using System.Threading;
@@ -25,14 +28,29 @@
             return ((ICoreAmazonSQS)amazonSqsToBeExtended).GetAttributes(queueUrl);
         }
 
+        public Task<Dictionary<String, String>> GetAttributesAsync(String queueUrl)
+        {
+            return amazonSqsToBeExtended.GetAttributesAsync(queueUrl);
+        }
+
         void ICoreAmazonSQS.SetAttributes(string queueUrl, Dictionary<string, string> attributes)
         {
             ((ICoreAmazonSQS)amazonSqsToBeExtended).SetAttributes(queueUrl, attributes);
         }
 
+        public Task SetAttributesAsync(String queueUrl, Dictionary<String, String> attributes)
+        {
+            return amazonSqsToBeExtended.SetAttributesAsync(queueUrl, attributes);
+        }
+
         public string AuthorizeS3ToSendMessage(string queueUrl, string bucket)
         {
             return amazonSqsToBeExtended.AuthorizeS3ToSendMessage(queueUrl, bucket);
+        }
+
+        public Task<String> AuthorizeS3ToSendMessageAsync(String queueUrl, String bucket)
+        {
+            return amazonSqsToBeExtended.AuthorizeS3ToSendMessageAsync(queueUrl, bucket);
         }
 
         public AddPermissionResponse AddPermission(string queueUrl, string label, List<string> awsAccountIds, List<string> actions)
@@ -363,6 +381,11 @@
         public Task<SetQueueAttributesResponse> SetQueueAttributesAsync(SetQueueAttributesRequest request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return amazonSqsToBeExtended.SetQueueAttributesAsync(request, cancellationToken);
+        }
+
+        public IClientConfig Config
+        {
+            get { return amazonSqsToBeExtended.Config; }
         }
     }
 }
