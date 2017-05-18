@@ -6,9 +6,10 @@
     using Model;
     using Moq;
     using Newtonsoft.Json;
-    using NUnit.Framework;
     using S3;
+    using NUnit.Framework;
 
+    [TestFixture]
     public class ExtendedClientTestBase
     {
         protected Mock<IAmazonS3> s3Mock;
