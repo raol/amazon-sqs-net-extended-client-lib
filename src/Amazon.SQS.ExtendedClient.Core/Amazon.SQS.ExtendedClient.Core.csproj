@@ -8,7 +8,10 @@
     <Version>1.1.1</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
-    <Author>TomazT</Author>
+    <Authors>Tom Medhurst, Tomaz Tekavec</Authors>
+    <PackageProjectUrl>https://github.com/VigilantApps/amazon-sqs-net-extended-client-lib</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/VigilantApps/amazon-sqs-net-extended-client-lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>Amazon;AWS;SQS;S3;.NET Core</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="3.3.14" />
