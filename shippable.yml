@@ -10,11 +10,11 @@ build:
     pull: true
     
   ci:
-    - export PACKAGE_VERSION=${PACKAGE_VERSION:-2.$(date +%Y).9$(date +%m%d%H%M)}
-    - export
-    - echo "== DOTNET: $(dotnet --version) =="
-    - dotnet clean
-    - dotnet restore
-    - sed -i "s/1.1.1/$PACKAGE_VERSION/" src/Amazon.SQS.ExtendedClient.Core/Amazon.SQS.ExtendedClient.Core.csproj
-    - dotnet pack -c Release src/Amazon.SQS.ExtendedClient.Core
-    - dotnet nuget push "src/Amazon.SQS.ExtendedClient.Core/bin/Release/*.nupkg" -k $NUGET_KEY -s $NUGET_URL
+    - "export PACKAGE_VERSION=${PACKAGE_VERSION:-2.$(date +%Y).9$(date +%m%d%H%M)}"
+    - "export"
+    - "echo == DOTNET: $(dotnet --version) =="
+    - "dotnet clean"
+    - "dotnet restore"
+    - "sed -i \"s/1.1.1/$PACKAGE_VERSION/\" src/Amazon.SQS.ExtendedClient.Core/Amazon.SQS.ExtendedClient.Core.csproj"
+    - "dotnet pack -c Release src/Amazon.SQS.ExtendedClient.Core"
+    - "dotnet nuget push \"src/Amazon.SQS.ExtendedClient.Core/bin/Release/*.nupkg\" -k $NUGET_KEY -s $NUGET_URL"
