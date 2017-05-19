@@ -101,7 +101,7 @@ _TeamCity*
 
 # NCrunch
 _NCrunch_*
-.*crunch*.local.xml
+*ncrunch*
 
 # MightyMoose
 *.mm.*
@@ -197,3 +197,4 @@ FakesAssemblies/
 
 # VIM files
 .*.swp
+Amazon.SQS.ExtendedClient.v3.ncrunchsolution

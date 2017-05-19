@@ -1,0 +1,20 @@
+language: none
+
+env:
+ - secure: Ty5ZXcKbxHLV+xSkGhhghM2oWKjHdOVoBM9xvwgW7waqt0GNobBt+M5bI+1Y8EXQRb/uEf7YX1Yut6wWp9CtKPUBXWaAqQtqDitvE27TJokel/kYJxeANljrNP9qpMFNi6qev8HRio02XR9C6fVpFbtbMAQ1XZwcu/D4wXrxE26Xx3p0U5SdoeITDa96ULah78q4XKqPBpTAhyLZLeo40yuT/ZzOotQuQMnacGNJQHt4eiEhwPJNjFAyOoZsCBX6oqQirFQ83PGSDyrb4fH6w7SLA+zwKLvSBTQsDYijTZQGZJEB+eQEmqR6zjhsjmTWdLvcmq3dk2ktZM2KIgbECw==
+
+build:
+  pre_ci_boot:
+    image_name: microsoft/dotnet
+    image_tag: latest
+    pull: true
+    
+  ci:
+    - "export PACKAGE_VERSION=${PACKAGE_VERSION:-2.$(date +%Y).9$(date +%m%d%H%M)}"
+    - "export"
+    - "echo == DOTNET: $(dotnet --version) =="
+    - "dotnet clean"
+    - "dotnet restore"
+    - "sed -i \"s/1.1.1/$PACKAGE_VERSION/\" src/Amazon.SQS.ExtendedClient.Core/Amazon.SQS.ExtendedClient.Core.csproj"
+    - "dotnet pack -c Release src/Amazon.SQS.ExtendedClient.Core"
+    - "dotnet nuget push \"src/Amazon.SQS.ExtendedClient.Core/bin/Release/*.nupkg\" -k $NUGET_KEY -s $NUGET_URL"

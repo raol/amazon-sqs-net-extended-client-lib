@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <ProjectGuid>{87932D35-43E8-4321-BE2A-FD17C99330FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Amazon.SQS.ExtendedClient</RootNamespace>
+    <AssemblyName>Amazon.SQS.ExtendedClient.Core</AssemblyName>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <Version>1.1.1</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Authors>Tom Medhurst, Tomaz Tekavec</Authors>
+    <PackageProjectUrl>https://github.com/VigilantApps/amazon-sqs-net-extended-client-lib</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/VigilantApps/amazon-sqs-net-extended-client-lib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>Amazon;AWS;SQS;S3;.NET Core</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Core" Version="3.3.14" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.6.1" />
+    <PackageReference Include="AWSSDK.SQS" Version="3.3.2.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

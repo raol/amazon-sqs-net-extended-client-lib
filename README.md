@@ -1,9 +1,10 @@
-Amazon SQS Extended Client Library for .NET
+Amazon SQS Extended Client Library for .NET Core
 ===========================================
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ljru25gu01h0rd8l/branch/master?svg=true)](https://ci.appveyor.com/project/raol/amazon-sqs-net-extended-client-lib)
 
-This is port to .NET of existing [Amazon Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib)
+This project was forked from [Amazon SQS Extended Client Library for .NET](https://github.com/raol/amazon-sqs-net-extended-client-lib),
+which is a port to .NET of existing [Amazon Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib)
 It enables you to store message payloads in S3 and hence overcomes message size limitation of the SQS.
 With this library you can:
 
@@ -21,7 +22,7 @@ With this library you can:
 
 To install via nuget, run following command in the Package Manager Console
 ```PowerShell
-Install-Package Amazon.SQS.ExtendedClient
+Install-Package Amazon.SQS.ExtendedClient.Core
 ```
 
 ## Usage
@@ -35,3 +36,8 @@ var extendedClient = new AmazonSQSExtendedClient(
 extendedClient.SendMessage(queueUrl, "MessageBody")
 ```
 
+### Notes
+
+* message size threshold is an integer value in bytes
+
+* the current default AWS SQS message size limitation is set to 262144 bytes
