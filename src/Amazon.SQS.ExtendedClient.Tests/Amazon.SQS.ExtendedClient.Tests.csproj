@@ -1,5 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
@@ -13,9 +14,6 @@
     <PackageReference Include="NUnit" Version="3.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\Amazon.SQS.ExtendedClient.Core\Amazon.SQS.ExtendedClient.Core.csproj" />
   </ItemGroup>
 </Project>

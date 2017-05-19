@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient", "Amazon.SQS.ExtendedClient.Core\Amazon.SQS.ExtendedClient.Core.csproj", "{87932D35-43E8-4321-BE2A-FD17C99330FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient.Core", "src\Amazon.SQS.ExtendedClient.Core\Amazon.SQS.ExtendedClient.Core.csproj", "{87932D35-43E8-4321-BE2A-FD17C99330FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient.Tests", "Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj", "{A5B38649-722E-48D5-AB2A-002A0AAD2F00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient.Tests", "src\Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj", "{A5B38649-722E-48D5-AB2A-002A0AAD2F00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
