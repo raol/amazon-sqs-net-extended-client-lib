@@ -3,11 +3,13 @@ version: 0.2.3.{build}
 configuration: Release
 
 before_build:
-    - nuget restore src/
+    - dotnet restore .\src
 
-after_build:
-    - nuget pack src\Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.nuspec -Version %appveyor_build_version%
-    - appveyor PushArtifact Amazon.SQS.ExtendedClient.%appveyor_build_version%.nupkg
+build_script:
+    - dotnet build .\src\Amazon.SQS.ExtendedClient.sln
+
+test_script:
+    - dotnet test .\src\Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj
 
 branches:
     only:

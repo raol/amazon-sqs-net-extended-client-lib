@@ -83,12 +83,7 @@
 
         public ExtendedClientConfiguration WithS3KeyProvider(IS3KeyPovider provider)
         {
-            if (provider == null)
-            {
-                throw new AmazonClientException("provider cannot be null");
-            }
-
-            this.S3KeyPovider = provider;
+            this.S3KeyPovider = provider ?? throw new AmazonClientException("provider cannot be null");
             return this;
         }
 
