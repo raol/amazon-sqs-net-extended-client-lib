@@ -3,7 +3,7 @@ version: 0.2.3.{build}
 configuration: Release
 
 before_build:
-    - dotnet restore
+    - dotnet restore .\src
 
 build_script:
     - dotnet build .\src\Amazon.SQS.ExtendedClient.sln
