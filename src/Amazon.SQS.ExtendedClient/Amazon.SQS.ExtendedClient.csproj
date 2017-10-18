@@ -7,6 +7,12 @@
     <AssemblyTitle>Amazon.SQS.ExtendedClient</AssemblyTitle>
     <Description>Extension to Amazon SQS that adds support for sending and receiving messages greater than 256K</Description>
     <Authors>Oleg Rakitskiy</Authors>
+    <PackageId>Amazon.SQS.ExtendedClient</PackageId>
+    <PackageTags>AWS Amazon SQS cloud</PackageTags>
+    <PackageProjectUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
