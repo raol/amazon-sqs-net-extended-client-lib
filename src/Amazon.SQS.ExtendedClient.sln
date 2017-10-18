@@ -1,8 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B520C700-7D45-4D82-BFB5-218FA68CF5CF}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SQS.ExtendedClient", "Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.csproj", "{87932D35-43E8-4321-BE2A-FD17C99330FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SQS.ExtendedClient.Tests", "Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj", "{A5B38649-722E-48D5-AB2A-002A0AAD2F00}"
