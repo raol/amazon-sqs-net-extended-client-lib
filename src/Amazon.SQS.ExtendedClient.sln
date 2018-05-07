@@ -8,9 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SQS.ExtendedClient", "Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.csproj", "{87932D35-43E8-4321-BE2A-FD17C99330FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient", "Amazon.SQS.ExtendedClient\Amazon.SQS.ExtendedClient.csproj", "{87932D35-43E8-4321-BE2A-FD17C99330FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.SQS.ExtendedClient.Tests", "Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj", "{A5B38649-722E-48D5-AB2A-002A0AAD2F00}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E9D09028-5510-4983-AE91-937104ED8EAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E8C4D9CA-29E0-45B7-BF54-CE26DA7F6A72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amazon.SQS.ExtendedClient.Tests", "Amazon.SQS.ExtendedClient.Tests\Amazon.SQS.ExtendedClient.Tests.csproj", "{4BFFAE8B-0583-4A80-B373-77A9BDCA0799}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +26,19 @@ Global
 		{87932D35-43E8-4321-BE2A-FD17C99330FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87932D35-43E8-4321-BE2A-FD17C99330FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87932D35-43E8-4321-BE2A-FD17C99330FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5B38649-722E-48D5-AB2A-002A0AAD2F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5B38649-722E-48D5-AB2A-002A0AAD2F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5B38649-722E-48D5-AB2A-002A0AAD2F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5B38649-722E-48D5-AB2A-002A0AAD2F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFFAE8B-0583-4A80-B373-77A9BDCA0799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFFAE8B-0583-4A80-B373-77A9BDCA0799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFFAE8B-0583-4A80-B373-77A9BDCA0799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFFAE8B-0583-4A80-B373-77A9BDCA0799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{87932D35-43E8-4321-BE2A-FD17C99330FA} = {E9D09028-5510-4983-AE91-937104ED8EAE}
+		{4BFFAE8B-0583-4A80-B373-77A9BDCA0799} = {E8C4D9CA-29E0-45B7-BF54-CE26DA7F6A72}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9550B96-8102-4171-88EB-9775E1D1520D}
 	EndGlobalSection
 EndGlobal
