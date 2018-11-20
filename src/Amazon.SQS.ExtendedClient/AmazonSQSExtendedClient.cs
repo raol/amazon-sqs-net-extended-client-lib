@@ -353,11 +353,11 @@
             }
             catch (AmazonServiceException e)
             {
-                throw new Exception("Failed to store the message content in an S3 object. SQS message was not sent.", e);
+                throw new AmazonClientException("Failed to store the message content in an S3 object. SQS message was not sent.", e);
             }
             catch (AmazonClientException e)
             {
-                throw new Exception("Failed to store the message content in an S3 object. SQS message was not sent.", e);
+                throw new AmazonClientException("Failed to store the message content in an S3 object. SQS message was not sent.", e);
             }
         }
 
