@@ -77,7 +77,7 @@
 
         public ExtendedClientConfiguration WithAlwaysThroughS3(bool alwaysThroughS3)
         {
-            this.AlwaysThroughS3 = true;
+            this.AlwaysThroughS3 = alwaysThroughS3;
             return this;
         }
 
