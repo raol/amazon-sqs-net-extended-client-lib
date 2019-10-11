@@ -94,11 +94,20 @@
                 MessageAttributeValue largePayloadAttributeValue;
                 if (message.MessageAttributes.TryGetValue(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME, out largePayloadAttributeValue))
                 {
-                    var messageS3Pointer = ReadMessageS3PointerFromJson(message.Body);
-                    var originalMessageBody = GetTextFromS3(messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
-                    message.Body = originalMessageBody;
-                    message.ReceiptHandle = EmbedS3PointerInReceiptHandle(message.ReceiptHandle, messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
-                    message.MessageAttributes.Remove(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME);
+                    try
+                    {
+                        var messageS3Pointer = ReadMessageS3PointerFromJson(message.Body);
+                        var originalMessageBody = GetTextFromS3(messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
+                        message.Body = originalMessageBody;
+                        message.ReceiptHandle = EmbedS3PointerInReceiptHandle(message.ReceiptHandle, messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
+                        message.MessageAttributes.Remove(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME);
+                    }
+                    catch (AmazonClientException amazonClientException)
+                    {
+                        amazonClientException.Data.Add(nameof(Message.MessageId), message.MessageId);
+                        amazonClientException.Data.Add(nameof(Message.ReceiptHandle), message.ReceiptHandle);
+                        throw;
+                    }
                 }
             }
 
@@ -267,5 +276,5 @@
             }
         }
 #endif
-    }
+	}
 }
