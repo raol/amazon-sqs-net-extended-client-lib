@@ -1,5 +1,9 @@
 ﻿namespace Amazon.SQS.ExtendedClient
 {
+    using Model;
+    using Newtonsoft.Json;
+    using Runtime;
+    using S3.Model;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -7,10 +11,6 @@
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-    using Model;
-    using Newtonsoft.Json;
-    using Runtime;
-    using S3.Model;
 
     public partial class AmazonSQSExtendedClient : AmazonSQSExtendedClientBase
     {
@@ -37,7 +37,7 @@
 
             if (string.IsNullOrEmpty(sendMessageRequest.MessageBody))
             {
-                throw new AmazonClientException("MessageBody cannone be null or empty");
+                throw new AmazonClientException("MessageBody cannot be null or empty");
             }
 
             if (!clientConfiguration.IsLargePayloadSupportEnabled)
