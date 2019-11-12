@@ -29,7 +29,7 @@
 
         public bool AlwaysThroughS3 { get; private set; }
 
-        public int MessageSizeThreshold { get; private set; }
+        public long MessageSizeThreshold { get; private set; }
 
         public bool IsLargePayloadSupportEnabled { get; private set; }
 
