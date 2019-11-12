@@ -27,15 +27,15 @@
 
         public string S3BucketName { get; private set; }
 
-        public bool AlwaysThroughS3 { get; set; }
+        public bool AlwaysThroughS3 { get; private set; }
 
-        public int MessageSizeThreshold { get; set; }
+        public int MessageSizeThreshold { get; private set; }
 
         public bool IsLargePayloadSupportEnabled { get; private set; }
 
         public IS3KeyPovider S3KeyPovider { get; private set; }
 
-        public bool RetainS3Messages { get; set; }
+        public bool RetainS3Messages { get; private set; }
 
         public ExtendedClientConfiguration WithLargePayloadSupportEnabled(IAmazonS3 s3, string s3BucketName)
         {
