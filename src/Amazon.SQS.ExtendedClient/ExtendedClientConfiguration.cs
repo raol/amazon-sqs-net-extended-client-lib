@@ -70,7 +70,7 @@
             return this;
         }
 
-        public ExtendedClientConfiguration WithMessageSizeThreshold(int messageSizeThreshold)
+        public ExtendedClientConfiguration WithMessageSizeThreshold(long messageSizeThreshold)
         {
             this.MessageSizeThreshold = messageSizeThreshold;
             return this;
