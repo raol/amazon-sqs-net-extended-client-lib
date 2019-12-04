@@ -5,15 +5,21 @@
     <AssemblyVersion>1.2.1</AssemblyVersion>
     <AssemblyFileVersion>1.0.0</AssemblyFileVersion>
     <AssemblyTitle>Amazon.SQS.ExtendedClient</AssemblyTitle>
-    <Description>Extension to Amazon SQS that adds support for sending and receiving messages greater than 256K</Description>
-    <Authors>Oleg Rakitskiy</Authors>
-    <PackageId>Amazon.SQS.ExtendedClient</PackageId>
+    <Description>Fork of Amazon.SQS.ExtendedClient. Strongly named with minor bugfixes.
+Extension to Amazon SQS that adds support for sending and receiving messages greater than 256K</Description>
+    <Authors>Dimitri Troncquo</Authors>
+    <PackageId>AWSSQS.ExtendClient</PackageId>
     <PackageTags>AWS Amazon SQS cloud</PackageTags>
-    <PackageProjectUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib/blob/master/LICENSE</PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/dimi3tron/amazon-sqs-net-extended-client-lib</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/dimi3tron/amazon-sqs-net-extended-client-lib/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/dimi3tron/amazon-sqs-net-extended-client-lib</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Version>1.2.1</Version>
+    <FileVersion>1.2.1</FileVersion>
+    <Company>Dimitri Troncquo</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'net45'">
