@@ -11,7 +11,7 @@
             S3BucketName = null;
             AlwaysThroughS3 = false;
             MessageSizeThreshold = SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD;
-            S3KeyPovider = new GuidS3KeyProvider();
+            Is3KeyProvider = new GuidIs3KeyProvider();
         }
 
         public ExtendedClientConfiguration(ExtendedClientConfiguration other)
@@ -21,21 +21,22 @@
             IsLargePayloadSupportEnabled = other.IsLargePayloadSupportEnabled;
             AlwaysThroughS3 = other.AlwaysThroughS3;
             MessageSizeThreshold = other.MessageSizeThreshold;
+            Is3KeyProvider = other.Is3KeyProvider;
         }
 
         public IAmazonS3 S3 { get; private set; }
 
         public string S3BucketName { get; private set; }
 
-        public bool AlwaysThroughS3 { get; set; }
+        public bool AlwaysThroughS3 { get; private set; }
 
-        public int MessageSizeThreshold { get; set; }
+        public long MessageSizeThreshold { get; private set; }
 
         public bool IsLargePayloadSupportEnabled { get; private set; }
 
-        public IS3KeyPovider S3KeyPovider { get; private set; }
+        public IS3KeyProvider Is3KeyProvider { get; private set; }
 
-        public bool RetainS3Messages { get; set; }
+        public bool RetainS3Messages { get; private set; }
 
         public ExtendedClientConfiguration WithLargePayloadSupportEnabled(IAmazonS3 s3, string s3BucketName)
         {
@@ -69,7 +70,7 @@
             return this;
         }
 
-        public ExtendedClientConfiguration WithMessageSizeThreshold(int messageSizeThreshold)
+        public ExtendedClientConfiguration WithMessageSizeThreshold(long messageSizeThreshold)
         {
             this.MessageSizeThreshold = messageSizeThreshold;
             return this;
@@ -81,9 +82,9 @@
             return this;
         }
 
-        public ExtendedClientConfiguration WithS3KeyProvider(IS3KeyPovider provider)
+        public ExtendedClientConfiguration WithS3KeyProvider(IS3KeyProvider provider)
         {
-            this.S3KeyPovider = provider ?? throw new AmazonClientException("provider cannot be null");
+            this.Is3KeyProvider = provider ?? throw new AmazonClientException("provider cannot be null");
             return this;
         }
 

@@ -1,16 +1,12 @@
 ﻿namespace Amazon.SQS.ExtendedClient
 {
-    using System;
+    using Model;
+    using Runtime;
+    using S3.Model;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Model;
-    using Newtonsoft.Json;
-    using Runtime;
-    using S3.Model;
 
     public partial class AmazonSQSExtendedClient
     {
@@ -24,7 +20,7 @@
 
             if (string.IsNullOrEmpty(sendMessageRequest.MessageBody))
             {
-                throw new AmazonClientException("MessageBody cannone be null or empty");
+                throw new AmazonClientException("MessageBody cannot be null or empty");
             }
 
             if (!clientConfiguration.IsLargePayloadSupportEnabled)
@@ -174,7 +170,7 @@
         {
             CheckMessageAttributes(batchEntry.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
+            var s3Key = clientConfiguration.Is3KeyProvider.GenerateName();
             var messageContentStr = batchEntry.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongCount();
 
@@ -194,7 +190,7 @@
         {
             CheckMessageAttributes(sendMessageRequest.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
+            var s3Key = clientConfiguration.Is3KeyProvider.GenerateName();
             var messageContentStr = sendMessageRequest.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongCount();
 
