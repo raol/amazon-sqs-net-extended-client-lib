@@ -13,7 +13,7 @@
     <PackageLicenseUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/raol/amazon-sqs-net-extended-client-lib</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFrameworkVersion)' == 'net45'">
