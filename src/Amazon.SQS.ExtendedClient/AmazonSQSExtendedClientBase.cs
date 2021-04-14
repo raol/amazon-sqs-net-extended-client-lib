@@ -459,5 +459,7 @@ namespace Amazon.SQS.ExtendedClient
         }
 
         public IClientConfig Config => amazonSqsToBeExtended.Config;
+
+        public ISQSPaginatorFactory Paginators => amazonSqsToBeExtended.Paginators;
     }
 }
