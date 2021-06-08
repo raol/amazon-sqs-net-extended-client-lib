@@ -1,13 +1,13 @@
 ﻿namespace Amazon.SQS.ExtendedClient.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Model;
     using Moq;
     using Newtonsoft.Json;
     using NUnit.Framework;
     using S3;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class ExtendedClientTestBase
     {
@@ -34,21 +34,21 @@
             return new string(Enumerable.Repeat('x', threshold).ToArray());
         }
 
-        protected bool MessagePointerIsCorrect(string messagePoinderBody)
+        protected bool MessagePointerIsCorrect(string messagePointerBody)
         {
-            var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePoinderBody);
+            var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePointerBody);
 
             return pointer.S3BucketName == S3_BUCKET_NAME && Guid.Parse(pointer.S3Key) != Guid.Empty;
         }
 
-        protected bool MessagePointerIsCorrect(string messagePoinderBody, string customPrefix)
+        protected bool MessagePointerIsCorrect(string messagePointerBody, string customPrefix)
         {
             if (string.IsNullOrEmpty(customPrefix))
             {
-                Assert.Fail("customPrefix is not specifed.");
+                Assert.Fail("customPrefix is not specified.");
             }
 
-            var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePoinderBody);
+            var pointer = JsonConvert.DeserializeObject<MessageS3Pointer>(messagePointerBody);
 
             return pointer.S3BucketName == S3_BUCKET_NAME &&
                    pointer.S3Key.StartsWith(customPrefix) &&

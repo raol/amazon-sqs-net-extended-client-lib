@@ -2,12 +2,12 @@
 
 namespace Amazon.SQS.ExtendedClient.Tests
 {
-    using System.Threading;
-    using System.Threading.Tasks;
     using Model;
     using Moq;
     using NUnit.Framework;
     using S3.Model;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     [TestFixture]
     public class When_ExtendedClient_Sends : ExtendedClientTestBase
@@ -30,7 +30,12 @@ namespace Amazon.SQS.ExtendedClient.Tests
             var body = GenerateLongString(SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD + 1);
             var messageRequest = new SendMessageRequest(SQS_QUEUE_NAME, body);
             await client.SendMessageAsync(messageRequest);
-            s3Mock.Verify(s => s.PutObjectAsync(It.IsAny<PutObjectRequest>(), It.IsAny<CancellationToken>()), Times.Once);
+            s3Mock.Verify(s =>
+                s.PutObjectAsync(It.Is<PutObjectRequest>(pm
+                        => pm.ContentBody == body
+                        && pm.BucketName == S3_BUCKET_NAME
+                        && pm.CannedACL == S3.S3CannedACL.BucketOwnerFullControl),
+                    It.IsAny<CancellationToken>()), Times.Once);
             sqsMock.Verify(s => s.SendMessageAsync(It.Is<SendMessageRequest>(r => MessagePointerIsCorrect(r.MessageBody) && LargePayloadAttributeIsAdded(r.MessageAttributes)), default(CancellationToken)));
         }
 #if NET45
