@@ -12,6 +12,7 @@
             AlwaysThroughS3 = false;
             MessageSizeThreshold = SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD;
             S3KeyPovider = new GuidS3KeyProvider();
+            S3CannedACL = S3CannedACL.BucketOwnerFullControl;
         }
 
         public ExtendedClientConfiguration(ExtendedClientConfiguration other)
@@ -21,6 +22,7 @@
             IsLargePayloadSupportEnabled = other.IsLargePayloadSupportEnabled;
             AlwaysThroughS3 = other.AlwaysThroughS3;
             MessageSizeThreshold = other.MessageSizeThreshold;
+            S3CannedACL = other.S3CannedACL;
         }
 
         public IAmazonS3 S3 { get; private set; }
@@ -35,9 +37,15 @@
 
         public IS3KeyPovider S3KeyPovider { get; private set; }
 
+        public S3CannedACL S3CannedACL { get; private set; }
+
         public bool RetainS3Messages { get; set; }
 
         public ExtendedClientConfiguration WithLargePayloadSupportEnabled(IAmazonS3 s3, string s3BucketName)
+        {
+            return WithLargePayloadSupportEnabled(s3, s3BucketName, S3CannedACL.BucketOwnerFullControl);
+        }
+        public ExtendedClientConfiguration WithLargePayloadSupportEnabled(IAmazonS3 s3, string s3BucketName, S3CannedACL s3CannedACL)
         {
             if (s3 == null)
             {
@@ -49,9 +57,15 @@
                 throw new AmazonClientException("S3 bucket name cannot be null or empty");
             }
 
+            if (s3CannedACL == null)
+            {
+                throw new AmazonClientException("S3 CannedACL cannot be null");
+            }
+
             this.S3 = s3;
             this.S3BucketName = s3BucketName;
             this.IsLargePayloadSupportEnabled = true;
+            this.S3CannedACL = s3CannedACL;
 
             return this;
         }

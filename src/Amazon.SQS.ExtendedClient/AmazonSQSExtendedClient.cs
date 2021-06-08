@@ -354,7 +354,7 @@
                     BucketName = clientConfiguration.S3BucketName,
                     Key = s3Key,
                     ContentBody = messageContent,
-                    CannedACL = S3.S3CannedACL.BucketOwnerFullControl
+                    CannedACL = clientConfiguration.S3CannedACL
                 };
 
                 await clientConfiguration.S3.PutObjectAsync(putObjectRequest, cancellationToken).ConfigureAwait(false);
