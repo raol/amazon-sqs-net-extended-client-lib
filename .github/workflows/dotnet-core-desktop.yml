@@ -2,9 +2,11 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
 
@@ -38,6 +40,8 @@ jobs:
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test .\src\Amazon.SQS.ExtendedClient.Tests\
+    - name: Pack application
+      run: dotnet pack ./src/Amazon.SQS.ExtendedClient/Amazon.SQS.ExtendedClient.csproj
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
