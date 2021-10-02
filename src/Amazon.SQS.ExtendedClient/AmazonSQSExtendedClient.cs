@@ -28,6 +28,41 @@
             clientConfiguration = configuration;
         }
 
+        public override Task<ChangeMessageVisibilityResponse> ChangeMessageVisibilityAsync(string queueUrl, string receiptHandle, int visibilityTimeout,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return ChangeMessageVisibilityAsync(new ChangeMessageVisibilityRequest(queueUrl, receiptHandle, visibilityTimeout), cancellationToken);
+        }
+
+        public override Task<ChangeMessageVisibilityResponse> ChangeMessageVisibilityAsync(ChangeMessageVisibilityRequest request,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            request.ReceiptHandle = IsS3ReceiptHandle(request.ReceiptHandle)
+                ? GetOriginalReceiptHandle(request.ReceiptHandle)
+                : request.ReceiptHandle;
+
+            return base.ChangeMessageVisibilityAsync(request, cancellationToken);
+        }
+
+        public override Task<ChangeMessageVisibilityBatchResponse> ChangeMessageVisibilityBatchAsync(string queueUrl, List<ChangeMessageVisibilityBatchRequestEntry> entries,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return ChangeMessageVisibilityBatchAsync(new ChangeMessageVisibilityBatchRequest(queueUrl, entries), cancellationToken);
+        }
+
+        public override Task<ChangeMessageVisibilityBatchResponse> ChangeMessageVisibilityBatchAsync(ChangeMessageVisibilityBatchRequest request,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            foreach (var entry in request.Entries)
+            {
+                entry.ReceiptHandle = IsS3ReceiptHandle(entry.ReceiptHandle)
+                    ? GetOriginalReceiptHandle(entry.ReceiptHandle)
+                    : entry.ReceiptHandle;
+            }
+
+            return base.ChangeMessageVisibilityBatchAsync(request, cancellationToken);
+        }
+
         public override async Task<SendMessageResponse> SendMessageAsync(SendMessageRequest sendMessageRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (sendMessageRequest == null)
