@@ -1,6 +1,8 @@
 Amazon SQS Extended Client Library for .NET
 ===========================================
 
+[![Support Ukraine Badge](https://bit.ly/support-ukraine-now)](https://github.com/support-ukraine/support-ukraine)
+
 [![Build status](https://github.com/raol/amazon-sqs-net-extended-client-lib/actions/workflows/dotnet-core-desktop.yml/badge.svg)](https://github.com/raol/amazon-sqs-net-extended-client-lib/actions)
 
 This is port to .NET of existing [Amazon Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib)
