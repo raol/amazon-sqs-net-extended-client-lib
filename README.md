@@ -1,7 +1,7 @@
 Amazon SQS Extended Client Library for .NET
 ===========================================
 
-[![Support Ukraine Badge](https://bit.ly/support-ukraine-now)](https://github.com/support-ukraine/support-ukraine)
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 [![Build status](https://github.com/raol/amazon-sqs-net-extended-client-lib/actions/workflows/dotnet-core-desktop.yml/badge.svg)](https://github.com/raol/amazon-sqs-net-extended-client-lib/actions)
 
