@@ -81,6 +81,19 @@ namespace Amazon.SQS.ExtendedClient
         }
 
 #if NET45
+        public CancelMessageMoveTaskResponse CancelMessageMoveTask(CancelMessageMoveTaskRequest request)
+        {
+            return amazonSqsToBeExtended.CancelMessageMoveTask(request);
+        }
+#endif
+
+        public Task<CancelMessageMoveTaskResponse> CancelMessageMoveTaskAsync(CancelMessageMoveTaskRequest request,
+            CancellationToken cancellationToken = new CancellationToken())
+        {
+            return amazonSqsToBeExtended.CancelMessageMoveTaskAsync(request, cancellationToken);
+        }
+
+#if NET45
         public virtual ChangeMessageVisibilityResponse ChangeMessageVisibility(string queueUrl, string receiptHandle, int visibilityTimeout)
         {
             return amazonSqsToBeExtended.ChangeMessageVisibility(queueUrl, receiptHandle, visibilityTimeout);
@@ -266,6 +279,17 @@ namespace Amazon.SQS.ExtendedClient
         {
             return amazonSqsToBeExtended.ListDeadLetterSourceQueuesAsync(request, cancellationToken);
         }
+#if NET45
+        public ListMessageMoveTasksResponse ListMessageMoveTasks(ListMessageMoveTasksRequest request)
+        {
+            return amazonSqsToBeExtended.ListMessageMoveTasks(request);
+        }
+#endif
+        public Task<ListMessageMoveTasksResponse> ListMessageMoveTasksAsync(ListMessageMoveTasksRequest request,
+            CancellationToken cancellationToken = new CancellationToken())
+        {
+            return amazonSqsToBeExtended.ListMessageMoveTasksAsync(request, cancellationToken);
+        }
 
 #if NET45
         public ListQueuesResponse ListQueues(string queueNamePrefix)
@@ -431,6 +455,19 @@ namespace Amazon.SQS.ExtendedClient
         public Task<SetQueueAttributesResponse> SetQueueAttributesAsync(SetQueueAttributesRequest request, CancellationToken cancellationToken = default(CancellationToken))
         {
             return amazonSqsToBeExtended.SetQueueAttributesAsync(request, cancellationToken);
+        }
+
+#if NET45
+        public StartMessageMoveTaskResponse StartMessageMoveTask(StartMessageMoveTaskRequest request)
+        {
+            return amazonSqsToBeExtended.StartMessageMoveTask(request);
+        }
+#endif
+
+        public Task<StartMessageMoveTaskResponse> StartMessageMoveTaskAsync(StartMessageMoveTaskRequest request,
+            CancellationToken cancellationToken = new CancellationToken())
+        {
+            return amazonSqsToBeExtended.StartMessageMoveTaskAsync(request, cancellationToken);
         }
 
 #if NET45
