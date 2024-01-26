@@ -29,11 +29,11 @@ Install-Package Amazon.SQS.ExtendedClient
 ## Usage
 
 ```csharp
-var s3Client = new AmazonS3Client(new BasicAWSCredentials("<key>", "<secret>"), "<region>")
+var s3Client = new AmazonS3Client(new BasicAWSCredentials("<key>", "<secret>"), "<region>");
 var sqsClient = new AmazonSQSClient(new BasicAWSCredentials("<key>", "<secret>"), "<region>");
 var extendedClient = new AmazonSQSExtendedClient(
     sqsClient, 
     new ExtendedClientConfiguration().WithLargePayloadSupportEnabled(s3Client, "<s3bucketname>"));
-extendedClient.SendMessage(queueUrl, "MessageBody")
+extendedClient.SendMessage(queueUrl, "MessageBody");
 ```
 
