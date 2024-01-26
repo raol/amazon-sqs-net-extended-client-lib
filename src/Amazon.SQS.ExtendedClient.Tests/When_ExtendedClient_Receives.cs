@@ -1,4 +1,6 @@
-﻿namespace Amazon.SQS.ExtendedClient.Tests
+﻿using Amazon.Runtime;
+
+namespace Amazon.SQS.ExtendedClient.Tests
 {
     using System;
     using System.IO;
@@ -74,6 +76,25 @@
             Assert.AreEqual(1, response.Messages.Count);
             Assert.AreEqual(originalBody, response.Messages[0].Body);
             Assert.AreEqual(GenerateReceiptHandle(S3_BUCKET_NAME, messageKey, originalReceiptHadle), response.Messages[0].ReceiptHandle);
+        }
+
+        [Test]
+        public void Long_Message_Async_It_is_Not_Read_From_S3_Due_To_Resource_Missing()
+        {
+            var originalReceiptHandle = "_testrh_";
+            var messageKey = Guid.NewGuid().ToString("N");
+            var pointer = new MessageS3Pointer(S3_BUCKET_NAME, messageKey);
+            var message = new Message { Body = JsonConvert.SerializeObject(pointer), ReceiptHandle = originalReceiptHandle };
+            message.MessageAttributes.Add(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME, new MessageAttributeValue());
+
+            sqsMock.Setup(m => m.ReceiveMessageAsync(It.Is<ReceiveMessageRequest>(r => r.MessageAttributeNames.Contains(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME)), It.IsAny<CancellationToken>())).Returns(Task.FromResult(new ReceiveMessageResponse { Messages = Enumerable.Repeat(message, 1).ToList() }));
+            s3Mock.Setup(m => m.GetObjectAsync(It.IsAny<GetObjectRequest>(), It.IsAny<CancellationToken>())).Throws<AmazonServiceException>();
+            var exception = Assert.ThrowsAsync<AmazonClientException>(async () => await client.ReceiveMessageAsync(new ReceiveMessageRequest(SQS_QUEUE_NAME)));
+
+            s3Mock.Verify(s => s.GetObjectAsync(It.Is<GetObjectRequest>(r => r.BucketName == S3_BUCKET_NAME && r.Key == messageKey), It.IsAny<CancellationToken>()), Times.Once);
+            Assert.IsTrue(exception.Data.Contains(nameof(Message.ReceiptHandle)));
+            var receiptHandle = (string)exception.Data[nameof(Message.ReceiptHandle)];
+            Assert.AreEqual(originalReceiptHandle, receiptHandle);
         }
     }
 }

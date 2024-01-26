@@ -140,11 +140,20 @@
             {
                 if (message.MessageAttributes.TryGetValue(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME, out _))
                 {
-                    var messageS3Pointer = ReadMessageS3PointerFromJson(message.Body);
-                    var originalMessageBody = await GetTextFromS3Async(messageS3Pointer.S3BucketName, messageS3Pointer.S3Key, cancellationToken).ConfigureAwait(false);
-                    message.Body = originalMessageBody;
-                    message.ReceiptHandle = EmbedS3PointerInReceiptHandle(message.ReceiptHandle, messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
-                    message.MessageAttributes.Remove(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME);
+                    try
+                    {
+                        var messageS3Pointer = ReadMessageS3PointerFromJson(message.Body);
+                        var originalMessageBody = await GetTextFromS3Async(messageS3Pointer.S3BucketName, messageS3Pointer.S3Key, cancellationToken).ConfigureAwait(false);
+                        message.Body = originalMessageBody;
+                        message.ReceiptHandle = EmbedS3PointerInReceiptHandle(message.ReceiptHandle, messageS3Pointer.S3BucketName, messageS3Pointer.S3Key);
+                        message.MessageAttributes.Remove(SQSExtendedClientConstants.RESERVED_ATTRIBUTE_NAME);
+                    }
+                    catch (AmazonClientException amazonClientException)
+                    {
+                        amazonClientException.Data.Add(nameof(Message.MessageId), message.MessageId);
+                        amazonClientException.Data.Add(nameof(Message.ReceiptHandle), message.ReceiptHandle);
+                        throw;
+                    }
                 }
             }
 
