@@ -325,7 +325,7 @@
         {
             CheckMessageAttributes(batchEntry.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
+            var s3Key = clientConfiguration.Is3KeyProvider.GenerateName();
             var messageContentStr = batchEntry.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongCount();
 
@@ -345,7 +345,7 @@
         {
             CheckMessageAttributes(sendMessageRequest.MessageAttributes);
 
-            var s3Key = clientConfiguration.S3KeyPovider.GenerateName();
+            var s3Key = clientConfiguration.Is3KeyProvider.GenerateName();
             var messageContentStr = sendMessageRequest.MessageBody;
             var messageContentSize = Encoding.UTF8.GetBytes(messageContentStr).LongCount();
 

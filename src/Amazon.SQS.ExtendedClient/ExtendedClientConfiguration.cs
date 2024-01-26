@@ -11,7 +11,7 @@
             S3BucketName = null;
             AlwaysThroughS3 = false;
             MessageSizeThreshold = SQSExtendedClientConstants.DEFAULT_MESSAGE_SIZE_THRESHOLD;
-            S3KeyPovider = new GuidS3KeyProvider();
+            Is3KeyProvider = new GuidIs3KeyProvider();
             S3CannedACL = S3CannedACL.BucketOwnerFullControl;
         }
 
@@ -35,7 +35,7 @@
 
         public bool IsLargePayloadSupportEnabled { get; private set; }
 
-        public IS3KeyPovider S3KeyPovider { get; private set; }
+        public IS3KeyProvider Is3KeyProvider { get; private set; }
 
         public S3CannedACL S3CannedACL { get; private set; }
 
@@ -95,9 +95,9 @@
             return this;
         }
 
-        public ExtendedClientConfiguration WithS3KeyProvider(IS3KeyPovider provider)
+        public ExtendedClientConfiguration WithS3KeyProvider(IS3KeyProvider provider)
         {
-            this.S3KeyPovider = provider ?? throw new AmazonClientException("provider cannot be null");
+            this.Is3KeyProvider = provider ?? throw new AmazonClientException("provider cannot be null");
             return this;
         }
 

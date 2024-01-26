@@ -34,7 +34,7 @@
         [Test]
         public void Long_Messages_S3KeyProvider_Is_Used_If_Configured()
         {
-            var mockS3Provider = new Mock<IS3KeyPovider>();
+            var mockS3Provider = new Mock<IS3KeyProvider>();
             mockS3Provider.Setup(m => m.GenerateName()).Returns(Constants.CustomPrefix + Guid.NewGuid().ToString("N"));
 
             var extendedClient = new AmazonSQSExtendedClient(
@@ -75,7 +75,7 @@
         [Test]
         public async Task Long_Message_Async_S3KeyProvider_Is_Used_If_Configured()
         {
-            var mockS3Provider = new Mock<IS3KeyPovider>();
+            var mockS3Provider = new Mock<IS3KeyProvider>();
             mockS3Provider.Setup(m => m.GenerateName()).Returns(Constants.CustomPrefix + Guid.NewGuid().ToString("N"));
 
             var extendedClient = new AmazonSQSExtendedClient(
