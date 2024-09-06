@@ -1,5 +1,6 @@
 ﻿using System;
 using Amazon.Runtime;
+using Amazon.Runtime.Endpoints;
 
 namespace Amazon.SQS.ExtendedClient
 {
@@ -492,6 +493,11 @@ namespace Amazon.SQS.ExtendedClient
         public Task<UntagQueueResponse> UntagQueueAsync(UntagQueueRequest request, CancellationToken cancellationToken = new CancellationToken())
         {
             return amazonSqsToBeExtended.UntagQueueAsync(request, cancellationToken);
+        }
+
+        public Endpoint DetermineServiceOperationEndpoint(AmazonWebServiceRequest request)
+        {
+            return amazonSqsToBeExtended.DetermineServiceOperationEndpoint(request);
         }
 
         public IClientConfig Config => amazonSqsToBeExtended.Config;
